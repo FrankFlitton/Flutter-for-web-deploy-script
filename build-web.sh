@@ -37,4 +37,3 @@ echo "🚚🖼 Copying graphic assets to expected folder"
 cp -R $APP_DIR/assets/. $APP_DIR/build/web/assets
 
 echo "✅🦋 Flutter for web build pipeline complete!"
-
