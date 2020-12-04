@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _imageUrl = 'assets/images/GitHub-Mark.png';
 
   void _incrementCounter() {
     setState(() {
@@ -57,6 +60,17 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  void _launchURL() async {
+    String url =
+        'https://github.com/FrankFlitton/Flutter-for-web-deploy-script';
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -99,6 +113,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            Container(width: 60, height: 60),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: kIsWeb
+                  ? Image.network(_imageUrl, height: 100.0, width: 100.0)
+                  : Image.asset(_imageUrl, height: 100.0, width: 100.0),
+            ),
+            Container(width: 20, height: 20),
+            RaisedButton(
+              onPressed: _launchURL,
+              child: Text('Get This Deploy Script!'),
             ),
           ],
         ),
