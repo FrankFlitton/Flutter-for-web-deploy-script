@@ -34,6 +34,6 @@ $FLUTTER_BIN config --enable-web
 $FLUTTER_BIN build web --release
 
 echo "🚚🖼 Copying graphic assets to their expected folders"
-cp -R $APP_DIR/assets/. $APP_DIR/build/web/
+cp -R $APP_DIR/build/web/assets/. $APP_DIR/build/web/
 
 echo "✅🦋 Flutter for web build pipeline complete!"
