@@ -33,7 +33,7 @@ echo "👷‍♀️🛠 Building Flutter app for web"
 $FLUTTER_BIN config --enable-web
 $FLUTTER_BIN build web --release
 
-echo "🚚🖼 Copying graphic assets to expected folder"
-cp -R $APP_DIR/assets/. $APP_DIR/build/web/assets
+echo "🚚🖼 Copying graphic assets to their expected folders"
+cp -R $APP_DIR/assets/. $APP_DIR/build/web/
 
 echo "✅🦋 Flutter for web build pipeline complete!"
