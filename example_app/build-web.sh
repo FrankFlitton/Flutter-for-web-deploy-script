@@ -16,7 +16,7 @@ echo "👋 Building inside of: \n    "$APP_DIR
 if cd $FLUTTER_DIR; then
   echo "📦 Cahed version of Flutter Beta found!"
   echo "👀 Checking for updates..."
-  git pull && cd ..
+  git pull --ff-only && cd ..
 else
   echo "🦋 Download and setup Flutter Beta"
   git clone https://github.com/flutter/flutter.git
