@@ -11,7 +11,9 @@ sh ./build-web.sh
 
 You may need to change the path called depending on your repo structure or tools.
 
-## Build Config Example (Netlify)
+## Build Config Example with Netlify
+> See it in action at [flutter-for-web-build-script-demo.netlify.app](https://flutter-for-web-build-script-demo.netlify.app/#)
+
 Here is an example config for Netlify that would be stored in their `netlify.toml` file at the root directory of your repo. In a monorepo structure, you would only have to change `build` to point to your flutter app directory.
 
 ```bash
@@ -28,10 +30,14 @@ Here is an example config for Netlify that would be stored in their `netlify.tom
   command = "sh ./build-web.sh"
 ```
 
+[Netlify File-based configuration Docs](https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file)
+
 ## How it works
-The script installs the beta version of Flutter to your deploy pipline container. If your build pipeline caches build artifacts Flutter will only be downloaded once.
+The script installs the beta version of Flutter to your deploy pipeline container. If your build pipeline caches build artifacts Flutter will only be downloaded once.
 
 ## Assets
-Flutter for web moves your static assets under a new `/assets/` folder. The path in the sever looks like `/assets/myAssets/*`. This results in some 404 errors.
+Flutter for web moves your static assets listed in the app's `pubspec.yaml` under a new `/assets/` folder. Flutter only does this during build, not development mode.
 
-The script assumes you have an `/assets` folder in your project where your images and other static assets are stored and copies them to the expected location.
+The path in your web app bundle looks now like `/assets/myAssets/...`. This results in your app having many 404 errors.
+
+To make the web file structure match that of your iOS or Android app, the build script makes a copy of the new `/assets` folder and places them in your project's root folder, mirroring what is found in Flutter's development mode.
