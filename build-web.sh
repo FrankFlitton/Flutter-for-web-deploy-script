@@ -16,7 +16,7 @@ echo "👋 Building inside of: \n    "$APP_DIR
 if cd $FLUTTER_DIR; then
   echo "📦 Cahed version of Flutter Beta found!"
   echo "👀 Checking for updates..."
-  git pull && cd ..
+  git pull --ff-only && cd ..
 else
   echo "🦋 Download and setup Flutter Beta"
   git clone https://github.com/flutter/flutter.git
@@ -33,7 +33,7 @@ echo "👷‍♀️🛠 Building Flutter app for web"
 $FLUTTER_BIN config --enable-web
 $FLUTTER_BIN build web --release
 
-echo "🚚🖼 Copying graphic assets to expected folder"
-cp -R $APP_DIR/assets/. $APP_DIR/build/web/assets
+echo "🚚🖼 Copying graphic assets to their expected folders"
+cp -R $APP_DIR/build/web/assets/. $APP_DIR/build/web/
 
 echo "✅🦋 Flutter for web build pipeline complete!"
