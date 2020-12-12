@@ -16,7 +16,6 @@ replacePath() {
   TARGET_EXT=$2
   TARGET_HASHED_EXT=$3
   cat $INPUT_FILE | awk -v srch="$TARGET_EXT" -v repl="$TARGET_HASHED_EXT" '{ sub(srch,repl,$0); print $0 }' >tmp && mv tmp $INPUT_FILE
-  echo "success" INPUT_FILE
 }
 
 HTML_EXTS=("js" "json")
