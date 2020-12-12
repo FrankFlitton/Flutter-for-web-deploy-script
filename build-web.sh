@@ -57,8 +57,10 @@ vercomp() {
 
 # Display update prompt
 
-UPDATE_PROMPT="🎉🦋 A new version of Flutter For Web Build Script is availible!\nVisit https://github.com/FrankFlitton/Flutter-for-web-deploy-script to update."
-NO_UPDATE_PROMPT="👍 You are on the latest version of Flutter For Web Build Script. \n Beginning build now..."
+UPDATE_PROMPT="🎉🦋 A new version of Flutter For Web Build Script is availible!
+\nInstalled: $CURRENT_VERSION. Current: $REMOTE_VERSION.
+\nVisit https://github.com/FrankFlitton/Flutter-for-web-deploy-script to update.\n"
+NO_UPDATE_PROMPT="👍 You are on the latest version of Flutter For Web Build Script. \n Beginning build now...\n"
 vercomp $CURRENT_VERSION $REMOTE_VERSION && echo $NO_UPDATE_PROMPT || echo $UPDATE_PROMPT
 
 # Begin to build the app for prod
