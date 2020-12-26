@@ -13,7 +13,7 @@
 
 CURRENT_VERSION=1.1.0
 REMOTE_URL="https://github.com/FrankFlitton/Flutter-for-web-deploy-script"
-REMOTE_TAGS="$(git ls-remote --tags $REMOTE_URL)"
+REMOTE_TAGS="$(echo $(git ls-remote --tags $REMOTE_URL))"
 
 REMOTE_HASHES=()
 REMOTE_VERSIONS=()
