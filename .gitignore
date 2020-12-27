@@ -23,24 +23,28 @@
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.pub-cache/
-.pub/
-/build/
+example_app/.dart_tool/
+example_app/.flutter-plugins
+example_app/.flutter-plugins-dependencies
+example_app/.packages
+example_app/.pub-cache/
+example_app/.pub/
+example_app/build/
+example_app/flutter/
 
 # Web related
-lib/generated_plugin_registrant.dart
+example_app/lib/generated_plugin_registrant.dart
 
 # Symbolication related
-app.*.symbols
+example_app/app.*.symbols
 
 # Obfuscation related
-app.*.map.json
+example_app/app.*.map.json
 
 # Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+example_app/android/app/debug
+example_app/android/app/profile
+example_app/android/app/release
+
+# Local Netlify folder
+.netlify
