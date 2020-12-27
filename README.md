@@ -1,4 +1,4 @@
-# Flutter for web Build Pipeline Script
+# Flutter For Web Build Pipeline Script
 > Use Flutter for web with your existing cloud build tools.
 
 ## Installation
@@ -32,12 +32,25 @@ Here is an example config for Netlify that would be stored in their `netlify.tom
 
 [Netlify File-based configuration Docs](https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file)
 
-## How it works
+## How It Works
 The script installs the beta version of Flutter to your deploy pipeline container. If your build pipeline caches build artifacts Flutter will only be downloaded once.
 
-## Assets
+### Assets
 Flutter for web moves your static assets listed in the app's `pubspec.yaml` under a new `/assets/` folder. Flutter only does this during build, not development mode.
 
 The path in your web app bundle looks now like `/assets/myAssets/...`. This results in your app having many 404 errors.
 
 To make the web file structure match that of your iOS or Android app, the build script makes a copy of the new `/assets` folder and places them in your project's root folder, mirroring what is found in Flutter's development mode.
+
+### Cache Busting
+Currently flutter doesn't offer a way to hash build artifacts. A stale version of the web app will persist in the user's web browser until they empty their cache.
+
+To solve this, we add a hash to the end of the URL as a query parameter. This allows the cache to be busted without renaming any bundled files.
+
+Only JS and JSON files loaded from the entry `index.html` file are loaded.
+
+### Checking For Updates
+There may be more future changes to this script than a stable framework would require (Flutter for web is still in beta). The script checks a list of tagged releases published on the public Github repo before it runs. The file does not auto update, it just shows a warning.
+
+## Contributing
+If you would like to submit a feature or find a bug, feel free to raise an issue or submit a pull request with your code contribution.
