@@ -13,4 +13,4 @@
   publish = "build/web"
 
   # Flutter build for web command
-  command = "sh ./build-web.sh"
+  command = "bash ./build-web.sh"
