@@ -27,7 +27,7 @@ Here is an example config for Netlify that would be stored in their `netlify.tom
   publish = "build/web"
 
   # Flutter build for web command
-  command = "sh ./build-web.sh"
+  command = "bash ./build-web.sh"
 ```
 
 [Netlify File-based configuration Docs](https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file)
