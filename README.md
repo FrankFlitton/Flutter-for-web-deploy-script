@@ -6,7 +6,7 @@ The installation of this script is as lightweight as possible.
 1. Place the `build-web.sh` script beside your pubspec.yaml file.
 2. Add the following command to your pipeline.
 ```bash
-sh ./build-web.sh
+bash ./build-web.sh
 ```
 
 You may need to change the path called depending on your repo structure or tools.
